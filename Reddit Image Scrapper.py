@@ -16,7 +16,7 @@ j = 0
 prev_height = 0
 while True:
     # if scroll-height doesnt change even after 60 sec then we have reached end of scroll so break out of loop
-    if i-j >= 60:
+    if i-j >= 25:
         l = web.execute_script("return document.body.scrollHeight;")
         if l == prev_height:
             break
@@ -35,7 +35,7 @@ webpage = BeautifulSoup(web.page_source,'html.parser')
 
 all = webpage.find('body').find_all('img')
 l = 0
-path = '.\\Reddit\\img\\' + sub
+path = '.\\Reddit\\' + sub
 if not os.path.exists(path):
     os.mkdir(path)
 for i in all:
